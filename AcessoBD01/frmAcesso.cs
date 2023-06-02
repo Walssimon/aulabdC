@@ -63,6 +63,7 @@ namespace AcessoBD01
         private void btnPesquisa_Click(object sender, EventArgs e)
         {
             MySqlCommand cmd = new MySqlCommand();
+            
             cmd.CommandText = String.Format("SELECT * FROM estados WHERE codigo = {0}",
                         txtCodigo.Text);
             cmd.CommandType = CommandType.Text;
@@ -90,7 +91,35 @@ namespace AcessoBD01
             }
         }
         #endregion
+        #region Consulta
+        private void pesquisa(string consulta) {
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.CommandText = consulta;
+            cmd.CommandType = CommandType.Text;
+            cmd.Connection = Conexao.abreConexao();
+            MySqlDataReader dr;
+            try
+            {
+                dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    txtCodigo.Text = dr["codigo"].ToString();
+                    txtNome.Text = dr["nome"].ToString();
+                    txtUF.Text = dr["uf"].ToString();
+                }
+                dr.Close();
+                cmd.Dispose();
+            }
+            catch (MySqlException ex)
+            {
 
+                MessageBox.Show(ex.Message);
+            }
+            finally {
+                Conexao.fechaConexao();
+            }
+        }
+        #endregion
         private void btnApagando_Click(object sender, EventArgs e)
         {
 
@@ -107,6 +136,30 @@ namespace AcessoBD01
             String terror = "INSERT INTO estados VALUES('(" + txtCodigo.Text + "','" + txtNome.Text + "','" + txtUF.Text + "')";
             String novo = String.Format("INSERT INTO estados VALUES ('{0}','{1}','{2}')", txtCodigo.Text, txtNome.Text, txtUF.Text);
             modifica(novo);
+        }
+
+        private void btnPrimeiro_Click(object sender, EventArgs e)
+        {
+            string primeiro = String.Format("SELECT * FROM espotados LIMIT 1");
+            pesquisa(primeiro);
+        }
+
+        private void btnUltimo_Click(object sender, EventArgs e)
+        {
+            string ultimo = String.Format("SELECT * FROM estados ORDER BY codigo DESC LIMIT 1");
+            pesquisa(ultimo);
+        }
+
+        private void btnProximo_Click(object sender, EventArgs e)
+        {
+            string proximo = String.Format("SELECT * FROM estados WHERE codigo > {0}LIMIT1", txtCodigo.Text); 
+            pesquisa(proximo);
+        }
+
+        private void btnAnterior_Click(object sender, EventArgs e)
+        {
+            string anterior = String.Format("SELECT * FROM estados WHERE codigo < {0} ORDER BY codigo DESC LIMIT 1", txtCodigo.Text); 
+            pesquisa(anterior);
         }
     }
 }

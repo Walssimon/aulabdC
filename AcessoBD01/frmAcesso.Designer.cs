@@ -40,6 +40,10 @@ namespace AcessoBD01
             this.btnApagando = new System.Windows.Forms.Button();
             this.btnCriar = new System.Windows.Forms.Button();
             this.btnAlterar = new System.Windows.Forms.Button();
+            this.btnPrimeiro = new System.Windows.Forms.Button();
+            this.btnAnterior = new System.Windows.Forms.Button();
+            this.btnProximo = new System.Windows.Forms.Button();
+            this.btnUltimo = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblCodigo
@@ -54,7 +58,7 @@ namespace AcessoBD01
             // lblNome
             // 
             this.lblNome.AutoSize = true;
-            this.lblNome.Location = new System.Drawing.Point(12, 92);
+            this.lblNome.Location = new System.Drawing.Point(10, 73);
             this.lblNome.Name = "lblNome";
             this.lblNome.Size = new System.Drawing.Size(126, 19);
             this.lblNome.TabIndex = 1;
@@ -63,7 +67,7 @@ namespace AcessoBD01
             // lblUF
             // 
             this.lblUF.AutoSize = true;
-            this.lblUF.Location = new System.Drawing.Point(12, 161);
+            this.lblUF.Location = new System.Drawing.Point(12, 125);
             this.lblUF.Name = "lblUF";
             this.lblUF.Size = new System.Drawing.Size(124, 19);
             this.lblUF.TabIndex = 2;
@@ -78,17 +82,15 @@ namespace AcessoBD01
             // 
             // txtNome
             // 
-            this.txtNome.Location = new System.Drawing.Point(16, 114);
+            this.txtNome.Location = new System.Drawing.Point(16, 95);
             this.txtNome.Name = "txtNome";
-            this.txtNome.ReadOnly = true;
             this.txtNome.Size = new System.Drawing.Size(266, 27);
             this.txtNome.TabIndex = 4;
             // 
             // txtUF
             // 
-            this.txtUF.Location = new System.Drawing.Point(16, 183);
+            this.txtUF.Location = new System.Drawing.Point(16, 147);
             this.txtUF.Name = "txtUF";
-            this.txtUF.ReadOnly = true;
             this.txtUF.Size = new System.Drawing.Size(56, 27);
             this.txtUF.TabIndex = 5;
             // 
@@ -107,6 +109,7 @@ namespace AcessoBD01
             // 
             // btnPesquisa
             // 
+            this.btnPesquisa.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold);
             this.btnPesquisa.Image = global::AcessoBD01.Properties.Resources.search;
             this.btnPesquisa.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnPesquisa.Location = new System.Drawing.Point(247, 279);
@@ -120,6 +123,7 @@ namespace AcessoBD01
             // 
             // btnApagando
             // 
+            this.btnApagando.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold);
             this.btnApagando.Image = global::AcessoBD01.Properties.Resources.erase;
             this.btnApagando.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnApagando.Location = new System.Drawing.Point(171, 279);
@@ -133,6 +137,7 @@ namespace AcessoBD01
             // 
             // btnCriar
             // 
+            this.btnCriar.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold);
             this.btnCriar.Image = global::AcessoBD01.Properties.Resources.adicionar;
             this.btnCriar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnCriar.Location = new System.Drawing.Point(95, 279);
@@ -146,6 +151,7 @@ namespace AcessoBD01
             // 
             // btnAlterar
             // 
+            this.btnAlterar.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold);
             this.btnAlterar.Image = global::AcessoBD01.Properties.Resources.atualizar;
             this.btnAlterar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnAlterar.Location = new System.Drawing.Point(19, 279);
@@ -157,11 +163,71 @@ namespace AcessoBD01
             this.btnAlterar.UseVisualStyleBackColor = true;
             this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
+            // btnPrimeiro
+            // 
+            this.btnPrimeiro.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btnPrimeiro.Image = global::AcessoBD01.Properties.Resources.primeiro;
+            this.btnPrimeiro.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnPrimeiro.Location = new System.Drawing.Point(19, 203);
+            this.btnPrimeiro.Name = "btnPrimeiro";
+            this.btnPrimeiro.Size = new System.Drawing.Size(70, 70);
+            this.btnPrimeiro.TabIndex = 11;
+            this.btnPrimeiro.Text = "Primerio";
+            this.btnPrimeiro.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnPrimeiro.UseVisualStyleBackColor = true;
+            this.btnPrimeiro.Click += new System.EventHandler(this.btnPrimeiro_Click);
+            // 
+            // btnAnterior
+            // 
+            this.btnAnterior.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btnAnterior.Image = global::AcessoBD01.Properties.Resources.anterior;
+            this.btnAnterior.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnAnterior.Location = new System.Drawing.Point(95, 203);
+            this.btnAnterior.Name = "btnAnterior";
+            this.btnAnterior.Size = new System.Drawing.Size(70, 70);
+            this.btnAnterior.TabIndex = 12;
+            this.btnAnterior.Text = "Anterior";
+            this.btnAnterior.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnAnterior.UseVisualStyleBackColor = true;
+            this.btnAnterior.Click += new System.EventHandler(this.btnAnterior_Click);
+            // 
+            // btnProximo
+            // 
+            this.btnProximo.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProximo.Image = global::AcessoBD01.Properties.Resources.proximo;
+            this.btnProximo.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnProximo.Location = new System.Drawing.Point(171, 203);
+            this.btnProximo.Name = "btnProximo";
+            this.btnProximo.Size = new System.Drawing.Size(70, 70);
+            this.btnProximo.TabIndex = 13;
+            this.btnProximo.Text = "Proximo";
+            this.btnProximo.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnProximo.UseVisualStyleBackColor = true;
+            this.btnProximo.Click += new System.EventHandler(this.btnProximo_Click);
+            // 
+            // btnUltimo
+            // 
+            this.btnUltimo.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btnUltimo.Image = global::AcessoBD01.Properties.Resources.ultimo;
+            this.btnUltimo.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnUltimo.Location = new System.Drawing.Point(247, 203);
+            this.btnUltimo.Name = "btnUltimo";
+            this.btnUltimo.Size = new System.Drawing.Size(70, 70);
+            this.btnUltimo.TabIndex = 14;
+            this.btnUltimo.Text = "Ultimo";
+            this.btnUltimo.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnUltimo.UseVisualStyleBackColor = true;
+            this.btnUltimo.Click += new System.EventHandler(this.btnUltimo_Click);
+            // 
             // frmAcesso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(334, 361);
+            this.Controls.Add(this.btnUltimo);
+            this.Controls.Add(this.btnProximo);
+            this.Controls.Add(this.btnAnterior);
+            this.Controls.Add(this.btnPrimeiro);
             this.Controls.Add(this.btnAlterar);
             this.Controls.Add(this.btnCriar);
             this.Controls.Add(this.btnApagando);
@@ -195,6 +261,10 @@ namespace AcessoBD01
         private System.Windows.Forms.Button btnApagando;
         private System.Windows.Forms.Button btnCriar;
         private System.Windows.Forms.Button btnAlterar;
+        private System.Windows.Forms.Button btnPrimeiro;
+        private System.Windows.Forms.Button btnAnterior;
+        private System.Windows.Forms.Button btnProximo;
+        private System.Windows.Forms.Button btnUltimo;
     }
 }
 
