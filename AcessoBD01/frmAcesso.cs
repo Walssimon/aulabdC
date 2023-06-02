@@ -122,7 +122,8 @@ namespace AcessoBD01
         #endregion
         private void btnApagando_Click(object sender, EventArgs e)
         {
-
+            string apaga = String.Format("DELETE FROM estados WHERE codigo = {0}", txtCodigo.Text); 
+            modifica(apaga);
         }
 
         private void btnAlterar_Click(object sender, EventArgs e)
@@ -160,6 +161,12 @@ namespace AcessoBD01
         {
             string anterior = String.Format("SELECT * FROM estados WHERE codigo < {0} ORDER BY codigo DESC LIMIT 1", txtCodigo.Text); 
             pesquisa(anterior);
+        }
+        private void frmAcesso_Load(object sender, EventArgs e)
+        { 
+            string primeiro =
+                String.Format("SELECT * FROM estados LIMIT 1");
+            pesquisa(primeiro); 
         }
     }
 }
